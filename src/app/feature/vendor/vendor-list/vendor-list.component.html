@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class = 'lefthalf'>
+    <span class='component-title'>[{{title}}] </span>
+    <span><a routerLink='/vendor/create'>
+          <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<p *ngIf='!vendors'>Loading ...</p>
+<table class="table table-sm" *ngIf='vendors'>
+  <tr>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Id')"><u>Id</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Code')"><u>Vendor Code</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Name')"><u>Name</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Address')"><u>Address</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('PhoneNumber')"><u>Phone Number</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Email')"><u>Email Address</u></a></th>
+    <th class="table-secondary">Approved</th>
+    <th class="table-secondary">Action</th>
+  </tr>
+  <tr *ngFor='let vendor of vendors'>
+    <td>{{vendor.id}}</td>
+    <td>{{vendor.code}}</td>
+    <td>{{vendor.name}}</td>
+    <td>{{vendor.address}}, {{vendor.city}}, {{vendor.state}} {{vendor.zip}}</td>
+    <td>{{vendor.phoneNumber}}</td>
+    <td>{{vendor.email}}</td>
+    <td>{{vendor.preApproved?"Yes":"No"}}</td>
+    <td class='actions'>
+      <img src='assets/details.png' width='20' height='20' title='Detail'>
+      <img src='assets/pencil-icon.png' width='20' height='20' title='Edit'>
+    </td>
+  </tr> 
+</table>

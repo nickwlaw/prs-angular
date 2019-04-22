@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../model/user.class';
-import { JsonResponse } from '../../../model/json-response.class';
 import { UserService } from '../../../service/user.service';
 
 @Component({
@@ -10,17 +9,15 @@ import { UserService } from '../../../service/user.service';
 })
 export class UserListComponent implements OnInit {
 
-  title: string = 'User List';
+  title = 'User List';
   users: User[];
-  jr: JsonResponse;
+  // jr: JsonResponse;
 
-  constructor(private userSvc: UserService) { }
+  constructor(private usrSvc: UserService) { }
 
   ngOnInit() {
-    this.userSvc.list().subscribe(jr => {
-      this.jr = jr;
-      this.users = this.jr.data as User[];
+    this.usrSvc.list().subscribe(jr => {
+      this.users = jr.data as User[];
     });
   }
-
 }
