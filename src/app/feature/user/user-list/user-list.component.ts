@@ -11,7 +11,6 @@ export class UserListComponent implements OnInit {
 
   title = 'User List';
   users: User[];
-  // jr: JsonResponse;
 
   constructor(private usrSvc: UserService) { }
 

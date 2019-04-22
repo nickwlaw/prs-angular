@@ -1,6 +1,8 @@
-<nav>
-  <ul>
-    <li *ngFor='let mi of menuItems' title="{{mi.tooltip}}">
-    <a routerLink="{{mi.href}}">{{mi.display}}</a></li>
-  </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngFor='let mi of menuItems' title="{{mi.tooltip}}">
+        <a class="nav-link" routerLink="{{mi.href}}">{{mi.display}}</a></li>
+    </ul>
+  </div>
 </nav>

@@ -9,7 +9,7 @@ import { VendorService } from '../../../service/vendor.service';
 })
 export class VendorListComponent implements OnInit {
 
-  title: 'Vendor List';
+  title = 'Vendor List';
   vendors: Vendor[];
 
   constructor(private vndrSvc: VendorService) { }
