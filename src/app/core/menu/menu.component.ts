@@ -8,8 +8,8 @@ import { Menu } from '../../model/menu.class';
 })
 export class MenuComponent implements OnInit {
 
+  navbarOpen = false;
   menuItems: Menu[] = [
-    new Menu('Home', '/home', 'This is the home menu item'),
     new Menu('User', '/user/list', 'This is the user menu item'),
     new Menu('Vendor', '/vendor/list', 'This is the vendor menu item'),
     new Menu('Product', '/product/list', 'This is the product menu item'),
@@ -18,6 +18,10 @@ export class MenuComponent implements OnInit {
     new Menu('Login', '/user/login', 'This is the login menu item'),
     new Menu('About', '/about', 'This is the about menu item')
   ];
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 
   constructor() { }
 
