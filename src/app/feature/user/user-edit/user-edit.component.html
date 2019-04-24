@@ -1,11 +1,13 @@
 <app-menu></app-menu>
-<div id='component'>
-  <div id='pagetitle'>
-    <span>[{{title}}]</span>
+<div class='component-content'>
+  <div>
+    <span class='component-title'>[{{title}}]</span>
+    <span><a routerLink='/user/create'><img id='createnew' width='20' height='20' src='assets/add-icon.png'
+          title='Add New'></a></span>
   </div>
   <p *ngIf='!user'>Loading...</p>
-  <div *ngIf='user'>
 
+  <div *ngIf='user'>
     <div class="form-group row">
       <label class='col-form-label col-sm-2' for="userfirstname">First name:</label>
       <input [(ngModel)]='user.firstName' name='FirstName' type="text" class="form-control col-sm-6" id="userfirstname"
@@ -25,13 +27,7 @@
       <small id="unameHelp" class="form-text text-muted col-sm-2">User's UserName</small>
     </div>
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="password">Password:</label>
-      <input [(ngModel)]='user.password' name='Password' type="text" class="form-control col-sm-6" id="password"
-        aria-describedby="pwdHelp" placeholder="Password">
-      <small id="pwdHelp" class="form-text text-muted col-sm-2">User's Password</small>
-    </div>
-    <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="phone">Phone Number:</label>
+      <label class='col-form-label col-sm-2' for="phone">Phone:</label>
       <input [(ngModel)]='user.phoneNumber' name='PhoneNumber' type="text" class="form-control col-sm-6" id="phone"
         aria-describedby="phoneHelp" placeholder="PhoneNumber">
       <small id="phoneHelp" class="form-text text-muted col-sm-2">User's Phone Number</small>
@@ -55,7 +51,7 @@
       <small id="reviewerHelp" class="form-text text-muted col-sm-2">Reviewer Authority</small>
     </div>
     <div class='form-group'>
-      <button (click)='create();' class='btn btn-primary'>Create</button>
+      <button (click)='edit()' class='btn btn-primary'>Update</button>
     </div>
   </div>
 </div>
