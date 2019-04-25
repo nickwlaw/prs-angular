@@ -10,7 +10,7 @@ export class Vendor {
   email: string;
   preApproved: boolean;
 
-  constructor(id: number, code: string, name: string, address: string, city: string, state: string, zip: string, 
+  constructor(id: number, code: string, name: string, address: string, city: string, state: string, zip: string,
               phoneNumber: string, email: string, preApproved: boolean) {
     this.id = id;
     this.code = code;

@@ -22,3 +22,10 @@ a {
 a:hover {
 	background-color: black;
 } */
+
+.img-responsive {
+	height: auto;
+	width: auto;
+	max-height: 55px;
+	max-width: 50px;
+ }

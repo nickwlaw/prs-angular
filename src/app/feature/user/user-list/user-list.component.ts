@@ -11,6 +11,8 @@ export class UserListComponent implements OnInit {
 
   title = 'User List';
   users: User[];
+  sortCriteria = 'username';
+  sortOrder = 'asc';
 
   constructor(private usrSvc: UserService) { }
 
@@ -18,5 +20,14 @@ export class UserListComponent implements OnInit {
     this.usrSvc.list().subscribe(jr => {
       this.users = jr.data as User[];
     });
+  }
+
+  sortBy(column: string): void {
+    if (this.sortCriteria === column) {
+      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortCriteria = column;
+      this.sortOrder = 'asc';
+    }
   }
 }

@@ -11,19 +11,19 @@
 <table class="table table-sm" *ngIf='users'>
   <tr>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('Id')"><u>Id</u></a></th>
+        (click)="sortBy('id')"><u>Id</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('UserName')"><u>User Name</u></a></th>
+        (click)="sortBy('userName')"><u>User Name</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('LastName')"><u>Name</u></a></th>
+        (click)="sortBy('lastName')"><u>Name</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('PhoneNumber')"><u>Phone</u></a></th>
+        (click)="sortBy('phoneNumber')"><u>Phone</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-        (click)="setSortBy('Email')"><u>Email</u></a></th>
+        (click)="sortBy('email')"><u>Email</u></a></th>
     <th class="table-secondary">Privilege</th>
     <th class="table-secondary">Action</th>
   </tr>
-  <tr *ngFor='let user of users'>
+  <tr *ngFor='let user of users | sort:sortCriteria:sortOrder'>
     <td>{{user.id}}</td>
     <td>{{user.userName}}</td>
     <td>{{user.lastName}}, {{user.firstName}}</td>
