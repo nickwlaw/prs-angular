@@ -1,3 +1,55 @@
-<p>
-  product-create works!
-</p>
+<app-menu></app-menu>
+<div>
+</div>
+<div class='component-content'>
+  <div>
+    <span class='component-title'>[{{title}}]</span>
+    <!-- | <span><a routerLink='/product/create'>New Product</a></span> -->
+    | <span><a routerLink='/product/list'>Back to list</a></span>
+  </div>
+  <p *ngIf='undefined'>Loading ...</p>
+
+  <div *ngIf='product'>
+    <div class='form-group row'>
+      <label class='col-form-label col-sm-2' for="vendor">Vendor:</label>
+      <div class=' col-sm-6'>
+        <select [(ngModel)]='product.vendor' class='form-control' name='Vendor' id='vendor'>
+          <option *ngFor="let vendor of vendors" [ngValue]="vendor">{{vendor.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="productpartnumber">PartNumber:</label>
+      <input [(ngModel)]='product.partNumber' name='PartNumber' type="text" class="form-control col-sm-6"
+        id="productpartnumber" aria-describedby="emailHelp" placeholder="PartNumber">
+      <small id="emailHelp" class="form-text text-muted col-sm-2">The PartNumber</small>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="productname">Name:</label>
+      <input [(ngModel)]='product.name' name='Name' type="text" class="form-control col-sm-6" id="productname"
+        aria-describedby="emailHelp" placeholder="Name">
+      <small id="emailHelp" class="form-text text-muted col-sm-2">The Name</small>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="productprice">Price:</label>
+      <input [(ngModel)]='product.price' name='Price' type="number" class="form-control col-sm-6" id="productprice"
+        aria-describedby="emailHelp" placeholder="Price">
+      <small id="emailHelp" class="form-text text-muted col-sm-2">The Price</small>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="productunit">Unit:</label>
+      <input [(ngModel)]='product.unit' name='Unit' type="text" class="form-control col-sm-6" id="productunit"
+        aria-describedby="emailHelp" placeholder="Unit">
+      <small id="emailHelp" class="form-text text-muted col-sm-2">The Unit</small>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="productphotopath">PhotoPath:</label>
+      <input [(ngModel)]='product.photoPath' name='PhotoPath' type="text" class="form-control col-sm-6"
+        id="productphotopath" aria-describedby="emailHelp" placeholder="PhotoPath">
+      <small id="emailHelp" class="form-text text-muted col-sm-2">The PhotoPath</small>
+    </div>
+    <div class='form-group'>
+      <button (click)='create()' class='btn btn-primary'>Create</button>
+    </div>
+  </div>
+</div>

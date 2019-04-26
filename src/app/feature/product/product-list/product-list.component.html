@@ -1,3 +1,36 @@
-<p>
-  product-list works!
-</p>
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class='lefthalf'>
+    <span class='component-title'>[{{title}}] </span>
+    <span><a routerLink='/product/create'>
+        <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<p *ngIf='!products'>Loading ...</p>
+<table class="table table-sm" *ngIf='products'>
+  <tr>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('id')"><u>Id</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('vendor')"><u>Vendor</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('name')"><u>Name</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('price')"><u>Price</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('unit')"><u>Unit</u></a></th>
+    <th class="table-secondary">Action</th>
+  </tr>
+  <tr *ngFor='let product of products | sort:sortCriteria:sortOrder'>
+    <td>{{product.id}}</td>
+    <td>{{product.vendor.name}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.unit}}</td>
+    <td class='actions'>
+      <a routerLink='/product/detail/{{product.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
+      <a routerLink='/product/edit/{{product.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+    </td>
+  </tr>
+</table>
