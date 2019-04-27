@@ -16,20 +16,16 @@ export class UserEditComponent implements OnInit {
   constructor(private userSvc: UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(parms => this.id = parms.id);
-    console.log('user edit ngOnInit', 'id = ' + this.id);
+    this.route.params.subscribe(params => this.id = params.id);
     this.userSvc.get(this.id).subscribe(jr => {
-        console.log('1');
-        this.user = jr.data as User;
-        console.log('user', this.user);
-      });
+      this.user = jr.data as User;
+    });
   }
 
   edit() {
     this.userSvc.edit(this.user).subscribe(jr => {
-      this.router.navigate(['/user/list']);
       this.user = jr.data as User;
-      console.log(this.user);
+      this.router.navigate(['/user/list']);
     });
   }
 
