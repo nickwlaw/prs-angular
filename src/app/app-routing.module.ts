@@ -8,6 +8,8 @@ import { UserEditComponent } from './feature/user/user-edit/user-edit.component'
 
 import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.component';
 import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
+import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
+import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
 
 import { ProductListComponent } from './feature/product/product-list/product-list.component';
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
@@ -23,8 +25,9 @@ const routes: Routes = [
   { path: 'user/remove/:id', component: UserDetailComponent},
   { path: 'vendor/list', component: VendorListComponent },
   { path: 'vendor/create', component: VendorCreateComponent },
-  // { path: 'vendor/detail/:id', component: VendorDetailComponent },
-  // { path: 'vendor/remove/:id', component: VendorDetailComponent },
+  { path: 'vendor/edit/:id', component: VendorEditComponent },
+  { path: 'vendor/detail/:id', component: VendorDetailComponent },
+  { path: 'vendor/remove/:id', component: VendorDetailComponent },
   { path: 'product/list', component: ProductListComponent },
   { path: 'product/create', component: ProductCreateComponent },
   { path: 'product/detail/:id', component: ProductDetailComponent },

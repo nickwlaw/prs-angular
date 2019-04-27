@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div id='component'>
   <div id='pagetitle'>
-    <span>[{{title}}]</span>
+    <span class='component-title'>[{{title}}]</span>
   </div>
   <p *ngIf='!vendor'>Loading...</p>
   <div *ngIf='vendor'>
@@ -37,25 +37,31 @@
       <small id="vstateHelp" class="form-text text-muted col-sm-2">Vendor's State</small>
     </div>
     <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="zip">Zip Code:</label>
+      <input [(ngModel)]='vendor.zip' name='Zip' type="text" class="form-control col-sm-6" id="zip"
+        aria-describedby="zipHelp" placeholder="ZipCode">
+      <small id="zipHelp" class="form-text text-muted col-sm-2">Vendor's Zip Code</small>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="pnum">Phone Number:</label>
+      <input [(ngModel)]='vendor.phoneNumber' name='Pnum' type="text" class="form-control col-sm-6" id="pnum"
+        aria-describedby="pnumHelp" placeholder="PhoneNumber">
+      <small id="pnumHelp" class="form-text text-muted col-sm-2">Vendor's Phone Number</small>
+    </div>
+    <div class="form-group row">
       <label class='col-form-label col-sm-2' for="email">Email:</label>
-      <input [(ngModel)]='user.email' name='Email' type="text" class="form-control col-sm-6" id="email"
+      <input [(ngModel)]='vendor.email' name='Email' type="text" class="form-control col-sm-6" id="email"
         aria-describedby="emailHelp" placeholder="Email">
-      <small id="emailHelp" class="form-text text-muted col-sm-2">User's Email</small>
+      <small id="emailHelp" class="form-text text-muted col-sm-2">Vendor's Email</small>
     </div>
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="userAdmin">Admin:</label>
-      <input [(ngModel)]='user.admin' name='Admin' type="checkbox" class="form-control col-sm-6" id="userAdmin"
-        aria-describedby="adminHelp" placeholder="Admin">
-      <small id="adminHelp" class="form-text text-muted col-sm-2">Admin Authority</small>
-    </div>
-    <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="userReviewer">Reviewer:</label>
-      <input [(ngModel)]='user.reviewer' name='Reviewer' type="checkbox" class="form-control col-sm-6" id="userReviewer"
-        aria-describedby="reviewerHelp" placeholder="Reviewer">
-      <small id="reviewerHelp" class="form-text text-muted col-sm-2">Reviewer Authority</small>
+      <label class='col-form-label col-sm-2' for="preapp">Pre-Approved:</label>
+      <input [(ngModel)]='vendor.preApproved' name='Preapp' type="checkbox" class="form-control col-sm-6" id="preapp"
+        aria-describedby="preappHelp" default='true'>
+      <small id="preappHelp" class="form-text text-muted col-sm-2">Is Pre-Approved</small>
     </div>
     <div class='form-group'>
-      <button (click)='create();' class='btn btn-primary'>Create</button>
+      <button (click)='create()' class='btn btn-primary'>Create</button>
     </div>
   </div>
 </div>

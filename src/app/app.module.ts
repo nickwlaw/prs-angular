@@ -22,6 +22,8 @@ import { ProductListComponent } from './feature/product/product-list/product-lis
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
+import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
+import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ProductCreateComponent } from './feature/product/product-create/product
     ProductListComponent,
     ProductEditComponent,
     ProductDetailComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    VendorDetailComponent,
+    VendorEditComponent
   ],
   imports: [
     BrowserModule,
