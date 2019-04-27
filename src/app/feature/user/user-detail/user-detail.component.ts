@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../service/user.service';
 import { User } from '../../../model/user.class';
-import { JsonResponse } from '../../../model/json-response.class';
 
 @Component({
   selector: 'app-user-detail',
@@ -16,24 +15,22 @@ export class UserDetailComponent implements OnInit {
   constructor(private userSvc: UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params
-      .subscribe(parms => {
-        const id = parms.id;
-        this.getUserById(id);
+    this.route.params.subscribe(params => {
+      this.userSvc.get(params.id).subscribe(jr => {
+        this.user = jr.data as User;
       });
-  }
-
-  getUserById(id: string) {
-    this.userSvc.get(id).subscribe(jr => {
-      this.user = jr.data as User;
     });
   }
 
   remove(): void {
     this.userSvc.delete(this.user.id).subscribe(jr => {
-      this.router.navigateByUrl('/user/list');
       this.user = jr.data as User;
-      console.log(this.user);
+      if (this.user) {
+        alert(this.user.userName + ' successfully deleted.');
+      } else {
+        alert('There was an error deleting this user.');
+      }
+      this.router.navigateByUrl('/user/list');
     });
   }
 }
