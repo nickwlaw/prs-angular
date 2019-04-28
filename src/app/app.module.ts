@@ -24,6 +24,14 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
 import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
 import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
+import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
+import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-detail/purchase-request-detail.component';
+import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-create/purchase-request-create.component';
+import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
+import { PurchaseRequestService } from './service/purchase-request.service';
+import { PurchaseRequestLineItemService } from './service/purchase-request-line-item.service';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { SystemService } from './service/system.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +49,12 @@ import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.co
     ProductDetailComponent,
     ProductCreateComponent,
     VendorDetailComponent,
-    VendorEditComponent
+    VendorEditComponent,
+    PurchaseRequestListComponent,
+    PurchaseRequestDetailComponent,
+    PurchaseRequestCreateComponent,
+    PurchaseRequestEditComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +66,10 @@ import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.co
   providers: [
     UserService,
     VendorService,
-    ProductService
+    ProductService,
+    PurchaseRequestService,
+    PurchaseRequestLineItemService,
+    SystemService
   ],
   bootstrap: [AppComponent]
 })

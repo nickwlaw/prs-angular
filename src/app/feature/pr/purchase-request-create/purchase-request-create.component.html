@@ -9,30 +9,26 @@
   </div>
   <p *ngIf='undefined'>Loading ...</p>
 
-  <div *ngIf='product'>
+  <div *ngIf='pr'>
     <div class='form-group row'>
-      <label class='col-form-label col-sm-2' for="vendor">Vendor:</label>
-      <div class=' col-sm-6'>
-        <select [(ngModel)]='product.vendor' class='form-control' name='Vendor' id='vendor'>
-          <option *ngFor="let vendor of vendors" [ngValue]="vendor">{{vendor.name}}</option>
-        </select>
-      </div>
+      <label class='col-form-label col-sm-2' for="user">User:</label>
+      <input type="text">
     </div>
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="productpartnumber">PartNumber:</label>
-      <input [(ngModel)]='product.partNumber' name='PartNumber' type="text" class="form-control col-sm-6"
-        id="productpartnumber" aria-describedby="emailHelp" placeholder="PartNumber">
-      <small id="emailHelp" class="form-text text-muted col-sm-2">The PartNumber</small>
+      <label class='col-form-label col-sm-2' for="prdescription">Description:</label>
+      <input [(ngModel)]='pr.description' name='Description' type="textarea" class="form-control col-sm-6"
+        id="prdescription" aria-describedby="descriptionHelp" placeholder="Description">
+      <small id="descriptionHelp" class="form-text text-muted col-sm-2">Description</small>
     </div>
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="productname">Name:</label>
-      <input [(ngModel)]='product.name' name='Name' type="text" class="form-control col-sm-6" id="productname"
-        aria-describedby="emailHelp" placeholder="Name">
-      <small id="emailHelp" class="form-text text-muted col-sm-2">The Name</small>
+      <label class='col-form-label col-sm-2' for="prjustification">Justification:</label>
+      <input [(ngModel)]='pr.justification' name='Justification' type="textarea" class="form-control col-sm-6" id="prjustification"
+        aria-describedby="justHelp" placeholder="Justification">
+      <small id="justHelp" class="form-text text-muted col-sm-2">Justification</small>
     </div>
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="productprice">Price:</label>
-      <input [(ngModel)]='product.price' name='Price' type="number" class="form-control col-sm-6" id="productprice"
+      <label class='col-form-label col-sm-2' for="prdateneeded">Date Needed:</label>
+      <input [(ngModel)]='pr.dateNeeded' name='DateNeeded' type="date" class="form-control col-sm-6" id="productprice"
         aria-describedby="emailHelp" placeholder="Price">
       <small id="emailHelp" class="form-text text-muted col-sm-2">The Price</small>
     </div>

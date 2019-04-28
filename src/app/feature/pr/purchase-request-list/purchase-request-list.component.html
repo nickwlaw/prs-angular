@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class='lefthalf'>
+    <span class='component-title'>[{{title}}] </span>
+    <span><a routerLink='/purchase-request/create'>
+        <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<p *ngIf='!prs'>Loading ...</p>
+<table class="table table-sm" *ngIf='prs'>
+  <tr>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('id')"><u>Id</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('user')"><u>User</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('subdate')"><u>Submitted Date</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('dateneeded')"><u>Date Needed</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('total')"><u>Total</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('status')"><u>Status</u></a></th>
+    <th class="table-secondary">Action</th>
+  </tr>
+  <tr *ngFor='let pr of prs | sort:sortCriteria:sortOrder'>
+    <td>{{pr.id}}</td>
+    <td>{{pr.user.userName}}</td>
+    <td>{{pr.submittedDate}}</td>
+    <td>{{pr.dateNeeded}}</td>
+    <td>{{pr.total}}</td>
+    <td>{{pr.status}}</td>
+    <td class='actions'>
+      <a routerLink='/purchase-request/detail/{{pr.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
+      <a routerLink='/purchase-request/edit/{{pr.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+    </td>
+  </tr>
+</table>

@@ -16,14 +16,6 @@ export class ProductCreateComponent implements OnInit {
   product: Product = new Product(0, this.vendor, '', '', 0, '', '');
   vendors: Vendor[] = [this.vendor];
 
-  create() {
-    this.prodSvc.create(this.product).subscribe(jr => {
-      this.router.navigate(['/product/list']);
-      this.product = jr.data as Product;
-      console.log(this.product);
-    });
-  }
-
   constructor(private prodSvc: ProductService, private vndrSvc: VendorService, private router: Router) { }
 
   ngOnInit() {
@@ -32,4 +24,10 @@ export class ProductCreateComponent implements OnInit {
     });
   }
 
+  create() {
+    this.prodSvc.create(this.product).subscribe(jr => {
+      this.product = jr.data as Product;
+      this.router.navigate(['/product/list']);
+    });
+  }
 }

@@ -5,6 +5,7 @@ import { UserListComponent } from './feature/user/user-list/user-list.component'
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
 import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
 import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 
 import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.component';
 import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
@@ -16,8 +17,12 @@ import { ProductCreateComponent } from './feature/product/product-create/product
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 
+import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
+import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-detail/purchase-request-detail.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/user/list', pathMatch: 'full' },
+  { path: 'user/login', component: UserLoginComponent },
   { path: 'user/list', component: UserListComponent },
   { path: 'user/create', component: UserCreateComponent },
   { path: 'user/detail/:id', component: UserDetailComponent },
@@ -33,6 +38,8 @@ const routes: Routes = [
   { path: 'product/detail/:id', component: ProductDetailComponent },
   { path: 'product/edit/:id', component: ProductEditComponent },
   { path: 'product/remove/:id', component: ProductDetailComponent },
+  { path: 'purchase-request/list', component: PurchaseRequestListComponent },
+  { path: 'purchase-request/detail/:id', component: PurchaseRequestDetailComponent },
   { path: '**', component: UserListComponent }
 ];
 
