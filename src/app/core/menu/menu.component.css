@@ -29,3 +29,7 @@ a:hover {
 	max-height: 55px;
 	max-width: 50px;
  }
+
+ .navbar {
+   width: 100%
+ }

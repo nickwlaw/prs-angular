@@ -32,6 +32,7 @@ import { PurchaseRequestService } from './service/purchase-request.service';
 import { PurchaseRequestLineItemService } from './service/purchase-request-line-item.service';
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 import { SystemService } from './service/system.service';
+import { PurchaseRequestReviewComponent } from './feature/pr/purchase-request-review/purchase-request-review.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { SystemService } from './service/system.service';
     PurchaseRequestDetailComponent,
     PurchaseRequestCreateComponent,
     PurchaseRequestEditComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    PurchaseRequestReviewComponent
   ],
   imports: [
     BrowserModule,

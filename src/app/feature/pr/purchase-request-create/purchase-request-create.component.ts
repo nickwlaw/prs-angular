@@ -4,7 +4,7 @@ import { PurchaseRequestService } from '../../../service/purchase-request.servic
 import { User } from '../../../model/user.class';
 import { SystemService } from '../../../service/system.service';
 import { Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { userInfo } from 'os';
 
 @Component({
   selector: 'app-purchase-request-create',
@@ -15,10 +15,17 @@ export class PurchaseRequestCreateComponent implements OnInit {
   title = 'Purchase Request Create';
   user: User;
   pr: PurchaseRequest;
+  date: Date;
 
-  constructor(private router: Router, private sysSvc: SystemService, private prSvc: PurchaseRequestService) { }
+  constructor(
+    private router: Router,
+    private sysSvc: SystemService,
+    private prSvc: PurchaseRequestService
+  ) { }
 
   ngOnInit() {
+    this.user = this.sysSvc.data.user.instance;
+    this.pr = new PurchaseRequest(0, this.user, '', '', this.date, '', 'New', 0.0, new Date(), '');
   }
 
   create() {
@@ -27,5 +34,4 @@ export class PurchaseRequestCreateComponent implements OnInit {
       this.router.navigateByUrl('/purchase-request/list');
     });
   }
-
 }

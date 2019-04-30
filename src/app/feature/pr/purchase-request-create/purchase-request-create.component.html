@@ -1,51 +1,47 @@
 <app-menu></app-menu>
-<div>
-</div>
-<div class='component-content'>
+<div></div>
+<div class="component-content">
   <div>
-    <span class='component-title'>[{{title}}] | </span>
+    <span class="component-title">[{{ title }}] | </span>
     <!-- | <span><a routerLink='/product/create'>New Product</a></span> -->
-    <span><a routerLink='/product/list'>Back to list</a></span>
+    <span><a routerLink="/purchase-request/list">Back to list</a></span>
   </div>
-  <p *ngIf='undefined'>Loading ...</p>
+  <p *ngIf="undefined">Loading ...</p>
 
-  <div *ngIf='pr'>
-    <div class='form-group row'>
-      <label class='col-form-label col-sm-2' for="user">User:</label>
-      <input type="text">
+  <div *ngIf="pr && user">
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="pruser">User: </label>
+      <!-- <input [(ngModel)]="pr.user" name="User" type="textarea" class="form-control col-sm-6"
+        id="pruser" aria-describedby="userHelp" placeholder='{{ user.userName }}' disabled /> -->
+      <span>{{ user.userName }}</span>
+      <!-- <small id="descriptionHelp" class="form-text text-muted col-sm-2">User Creating Purchase Request</small> -->
     </div>
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="prdescription">Description:</label>
-      <input [(ngModel)]='pr.description' name='Description' type="textarea" class="form-control col-sm-6"
-        id="prdescription" aria-describedby="descriptionHelp" placeholder="Description">
+      <label class="col-form-label col-sm-2" for="prdescription">Description:</label>
+      <input [(ngModel)]="pr.description" name="Description" type="textarea" class="form-control col-sm-6"
+        id="prdescription" aria-describedby="descriptionHelp" placeholder="Description" />
       <small id="descriptionHelp" class="form-text text-muted col-sm-2">Description</small>
     </div>
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="prjustification">Justification:</label>
-      <input [(ngModel)]='pr.justification' name='Justification' type="textarea" class="form-control col-sm-6" id="prjustification"
-        aria-describedby="justHelp" placeholder="Justification">
+      <label class="col-form-label col-sm-2" for="prjustification">Justification:</label>
+      <input [(ngModel)]="pr.justification" name="Justification" type="textarea" class="form-control col-sm-6"
+        id="prjustification" aria-describedby="justHelp" placeholder="Justification" />
       <small id="justHelp" class="form-text text-muted col-sm-2">Justification</small>
     </div>
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="prdateneeded">Date Needed:</label>
-      <input [(ngModel)]='pr.dateNeeded' name='DateNeeded' type="date" class="form-control col-sm-6" id="productprice"
-        aria-describedby="emailHelp" placeholder="Price">
-      <small id="emailHelp" class="form-text text-muted col-sm-2">The Price</small>
+      <label class="col-form-label col-sm-2" for="prdateneeded">Date Needed:</label>
+      <input [(ngModel)]="pr.dateNeeded" name="DateNeeded" type="date" class="form-control col-sm-6" id="prdateneeded"
+        aria-describedby="dateneededHelp" />
+      <small id="dateneededHelp" class="form-text text-muted col-sm-2">Date Needed</small>
     </div>
     <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="productunit">Unit:</label>
-      <input [(ngModel)]='product.unit' name='Unit' type="text" class="form-control col-sm-6" id="productunit"
-        aria-describedby="emailHelp" placeholder="Unit">
-      <small id="emailHelp" class="form-text text-muted col-sm-2">The Unit</small>
+      <label class="col-form-label col-sm-2" for="deliverymode">Delivery Mode:</label>
+      <input [(ngModel)]="pr.deliveryMode" name="DeliveryMode" type="text" class="form-control col-sm-6"
+        id="deliverymode" aria-describedby="dmodeHelp" placeholder="DeliveryMode" />
+      <small id="dmodeHelp" class="form-text text-muted col-sm-2">Delivery Mode</small>
     </div>
-    <div class="form-group row">
-      <label class='col-form-label col-sm-2' for="productphotopath">PhotoPath:</label>
-      <input [(ngModel)]='product.photoPath' name='PhotoPath' type="text" class="form-control col-sm-6"
-        id="productphotopath" aria-describedby="emailHelp" placeholder="PhotoPath">
-      <small id="emailHelp" class="form-text text-muted col-sm-2">The PhotoPath</small>
-    </div>
-    <div class='form-group'>
-      <button (click)='create()' class='btn btn-primary'>Create</button>
+    <div class="form-group">
+      <button (click)="create()" class="btn btn-primary">Create</button>
     </div>
   </div>
 </div>

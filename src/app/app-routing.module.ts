@@ -19,6 +19,7 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
 
 import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
 import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-detail/purchase-request-detail.component';
+import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-create/purchase-request-create.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/user/list', pathMatch: 'full' },
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'product/remove/:id', component: ProductDetailComponent },
   { path: 'purchase-request/list', component: PurchaseRequestListComponent },
   { path: 'purchase-request/detail/:id', component: PurchaseRequestDetailComponent },
+  { path: 'purchase-request/create', component: PurchaseRequestCreateComponent },
   { path: '**', component: UserListComponent }
 ];
 
