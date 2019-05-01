@@ -1,0 +1,56 @@
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class=''>
+    <div class='lefthalf'>
+      <span class='component-title'>[{{title}}]</span>
+    </div>
+  </div>
+  <table class="table table-sm" *ngIf='pr'>
+    <tr>
+      <th class="table-secondary font-weight-bold">Id</th>
+      <th class="table-secondary font-weight-bold">User</th>
+      <th class="table-secondary font-weight-bold">Description</th>
+      <th class="table-secondary font-weight-bold">Justification</th>
+      <th class="table-secondary font-weight-bold">Date Needed</th>
+      <th class="table-secondary font-weight-bold">Delivery Mode</th>
+      <th class="table-secondary font-weight-bold">Status</th>
+      <th class="table-secondary font-weight-bold">Total</th>
+      <th class="table-secondary font-weight-bold">Submitted Date</th>
+    </tr>
+    <tr>
+      <td>{{ pr.id }}</td>
+      <td>{{ pr.user.userName }}</td>
+      <td>{{ pr.description }}</td>
+      <td>{{ pr.justification }}</td>
+      <td>{{ pr.dateNeeded }}</td>
+      <td>{{ pr.deliveryMode }}</td>
+      <td>{{ pr.status }}</td>
+      <td>{{ pr.total }}</td>
+      <td>{{ pr.submittedDate }}</td>
+    </tr>
+  </table>
+  <div class='lefthalf'>
+    <span class='component-title'>[Line items]</span>
+    <span><a routerLink='/purchase-request-line-item/create'>
+        <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+    </span>
+  </div>
+  <p *ngIf='!prlis'>Loading...</p>
+  <table class="table table-sm" *ngIf='prlis'>
+    <tr>
+      <th class="table-secondary font-weight-bold">Id</th>
+      <th class="table-secondary font-weight-bold">Product</th>
+      <th class="table-secondary font-weight-bold">Quantity</th>
+      <th class="table-secondary font-weight-bold">Action</th>
+    </tr>
+    <tr *ngFor='let prli of prlis'>
+      <td>{{ prli.id }}</td>
+      <td>{{ prli.product.name }}</td>
+      <td>{{ prli.quantity }}</td>
+      <td class='actions'>
+        <a routerLink='/purchase-request-line-item/edit/{{prli.id}}'><img src='assets/pencil-icon.png' width='20'
+            height='20' title='Edit'></a>
+        <a><img src='assets/delete.jpg' width='20' height='20' title='Detail'></a>
+    </tr>
+  </table>
+</div>

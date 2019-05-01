@@ -2,3 +2,7 @@
 .component-content {
   margin-left: 10px
 }
+
+.component-title {
+  font-weight: 500
+}

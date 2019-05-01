@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a routerLink="/home" class="navbar-brand"><img class='img-responsive' src="../../../assets/PRS-Logo-2-Resized.png" alt=""></a>
+  <a routerLink="/home" class="navbar-brand"><img class='img-responsive' src="../../../assets/PRS-Logo-2-Resized.png"
+      alt=""></a>
   <button class="navbar-toggler" type="button" (click)="toggleNavbar();">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,11 +10,15 @@
         <a *ngIf='user' class="nav-link" routerLink="{{mi.href}}">{{mi.display}}</a>
         <a *ngIf='!user' class="nav-link disabled">{{mi.display}}</a>
       </li>
+      <li class="nav-item">
+        <a *ngIf="user && user.reviewer" class="nav-link" routerLink="/purchase-request/review">Review</a>
+      </li>
     </ul>
     <ul class="navbar-nav navbar-right">
       <li class="nav-item">
         <a *ngIf="!user" class="nav-link" routerLink="/user/login">Login</a>
-        <a *ngIf="user" class="nav-link" routerLink="/user/detail/{{user.id}}">Hello, {{user.firstName}} {{user.lastName}}</a>
+        <a *ngIf="user" class="nav-link" routerLink="/user/detail/{{user.id}}">Hello, {{user.firstName}}
+          {{user.lastName}}</a>
       </li>
     </ul>
   </div>

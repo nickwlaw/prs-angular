@@ -20,6 +20,8 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
 import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
 import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-detail/purchase-request-detail.component';
 import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-create/purchase-request-create.component';
+import { PurchaseRequestReviewComponent } from './feature/pr/purchase-request-review/purchase-request-review.component';
+import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lines/purchase-request-lines.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/user/list', pathMatch: 'full' },
@@ -42,6 +44,8 @@ const routes: Routes = [
   { path: 'purchase-request/list', component: PurchaseRequestListComponent },
   { path: 'purchase-request/detail/:id', component: PurchaseRequestDetailComponent },
   { path: 'purchase-request/create', component: PurchaseRequestCreateComponent },
+  { path: 'purchase-request/review', component: PurchaseRequestReviewComponent },
+  { path: 'purchase-request/lines/:id', component: PurchaseRequestLinesComponent },
   { path: '**', component: UserListComponent }
 ];
 

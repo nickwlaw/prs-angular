@@ -4,7 +4,6 @@ import { PurchaseRequestService } from '../../../service/purchase-request.servic
 import { User } from '../../../model/user.class';
 import { SystemService } from '../../../service/system.service';
 import { Router } from '@angular/router';
-import { userInfo } from 'os';
 
 @Component({
   selector: 'app-purchase-request-create',
