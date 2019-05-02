@@ -24,9 +24,12 @@ export class PurchaseRequestLinesComponent implements OnInit {
         this.pr = prjr.data as PurchaseRequest;
         this.prliSvc.listByPurchaseRequest(this.pr.id.toString()).subscribe(prlijr => {
           this.prlis = prlijr.data as PurchaseRequestLineItem[];
-          console.log(this.prlis);
         });
       });
     });
+  }
+
+  remove(id: number) {
+    this.prliSvc.delete(id);
   }
 }

@@ -14,7 +14,6 @@ export class PurchaseRequestCreateComponent implements OnInit {
   title = 'Purchase Request Create';
   user: User;
   pr: PurchaseRequest;
-  date: Date;
 
   constructor(
     private router: Router,
@@ -24,7 +23,7 @@ export class PurchaseRequestCreateComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.sysSvc.data.user.instance;
-    this.pr = new PurchaseRequest(0, this.user, '', '', this.date, '', 'New', 0.0, new Date(), '');
+    this.pr = new PurchaseRequest(0, this.user, '', '', new Date(), '', '', 0.0, new Date(), '');
   }
 
   create() {

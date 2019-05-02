@@ -34,6 +34,8 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
 import { SystemService } from './service/system.service';
 import { PurchaseRequestReviewComponent } from './feature/pr/purchase-request-review/purchase-request-review.component';
 import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lines/purchase-request-lines.component';
+import { PurchaseRequestLineItemCreateComponent } from './feature/prli/purchase-request-line-item-create/purchase-request-line-item-create.component';
+import { PurchaseRequestLineItemEditComponent } from './feature/prli/purchase-request-line-item-edit/purchase-request-line-item-edit.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lin
     PurchaseRequestEditComponent,
     UserLoginComponent,
     PurchaseRequestReviewComponent,
-    PurchaseRequestLinesComponent
+    PurchaseRequestLinesComponent,
+    PurchaseRequestLineItemCreateComponent,
+    PurchaseRequestLineItemEditComponent
   ],
   imports: [
     BrowserModule,

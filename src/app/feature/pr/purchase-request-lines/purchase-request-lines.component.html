@@ -31,7 +31,7 @@
   </table>
   <div class='lefthalf'>
     <span class='component-title'>[Line items]</span>
-    <span><a routerLink='/purchase-request-line-item/create'>
+    <span><a routerLink='/purchase-request-line-item/create/{{ pr.id }}'>
         <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
     </span>
   </div>
@@ -40,17 +40,19 @@
     <tr>
       <th class="table-secondary font-weight-bold">Id</th>
       <th class="table-secondary font-weight-bold">Product</th>
+      <th class="table-secondary font-weight-bold">Price</th>
       <th class="table-secondary font-weight-bold">Quantity</th>
       <th class="table-secondary font-weight-bold">Action</th>
     </tr>
     <tr *ngFor='let prli of prlis'>
       <td>{{ prli.id }}</td>
       <td>{{ prli.product.name }}</td>
+      <td>{{ prli.product.price }}</td>
       <td>{{ prli.quantity }}</td>
       <td class='actions'>
         <a routerLink='/purchase-request-line-item/edit/{{prli.id}}'><img src='assets/pencil-icon.png' width='20'
             height='20' title='Edit'></a>
-        <a><img src='assets/delete.jpg' width='20' height='20' title='Detail'></a>
+        <a (click)=remove(prli.id)><img src='assets/delete.jpg' width='20' height='20' title='Delete'></a>
     </tr>
   </table>
 </div>
