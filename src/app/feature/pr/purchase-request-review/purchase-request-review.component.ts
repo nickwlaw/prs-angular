@@ -27,7 +27,7 @@ export class PurchaseRequestReviewComponent implements OnInit {
 
   sortBy(column: string): void {
     if (this.sortCriteria === column) {
-      this.sortOrder = (this.sortOrder === 'asc' ? 'desc' : 'asc');
+      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
     } else {
       this.sortCriteria = column;
       this.sortOrder = 'asc';

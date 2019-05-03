@@ -23,6 +23,7 @@ import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-cr
 import { PurchaseRequestReviewComponent } from './feature/pr/purchase-request-review/purchase-request-review.component';
 import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lines/purchase-request-lines.component';
 import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
+import { PurchaseRequestApproveComponent } from './feature/pr/purchase-request-approve/purchase-request-approve.component';
 
 import { PurchaseRequestLineItemCreateComponent } from './feature/prli/purchase-request-line-item-create/purchase-request-line-item-create.component';
 import { PurchaseRequestLineItemEditComponent } from './feature/prli/purchase-request-line-item-edit/purchase-request-line-item-edit.component';
@@ -49,7 +50,9 @@ const routes: Routes = [
   { path: 'purchase-request/detail/:id', component: PurchaseRequestDetailComponent },
   { path: 'purchase-request/create', component: PurchaseRequestCreateComponent },
   { path: 'purchase-request/review', component: PurchaseRequestReviewComponent },
+  { path: 'purchase-request/approve/:id', component: PurchaseRequestApproveComponent },
   { path: 'purchase-request/lines/:id', component: PurchaseRequestLinesComponent },
+  { path: 'purchase-request/lines/remove/:pr/:prli', component: PurchaseRequestLinesComponent },
   { path: 'purchase-request/edit/:id', component: PurchaseRequestEditComponent },
   { path: 'purchase-request-line-item/create/:id', component: PurchaseRequestLineItemCreateComponent },
   { path: 'purchase-request-line-item/edit/:id', component: PurchaseRequestLineItemEditComponent },
