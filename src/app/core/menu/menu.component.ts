@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Menu } from '../../model/menu.class';
 import { SystemService } from '../../service/system.service';
 import { User } from '../../model/user.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -25,14 +26,11 @@ export class MenuComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  constructor(private sysSvc: SystemService) { }
+  constructor(private sysSvc: SystemService, private router: Router) { }
 
   ngOnInit() {
     if (this.sysSvc.data.user.loggedIn) {
       this.user = this.sysSvc.data.user.instance;
-      console.log(this.user);
-    } else {
-      console.error('User not logged in.');
     }
   }
 }

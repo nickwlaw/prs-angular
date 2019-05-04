@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AboutComponent } from './feature/about/about.component';
+
 import { UserListComponent } from './feature/user/user-list/user-list.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
 import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
@@ -29,7 +31,8 @@ import { PurchaseRequestLineItemCreateComponent } from './feature/prli/purchase-
 import { PurchaseRequestLineItemEditComponent } from './feature/prli/purchase-request-line-item-edit/purchase-request-line-item-edit.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/user/list', pathMatch: 'full' },
+  { path: '', redirectTo: '/about', pathMatch: 'full' },
+  { path: 'about', component: AboutComponent },
   { path: 'user/login', component: UserLoginComponent },
   { path: 'user/list', component: UserListComponent },
   { path: 'user/create', component: UserCreateComponent },
@@ -56,7 +59,7 @@ const routes: Routes = [
   { path: 'purchase-request/edit/:id', component: PurchaseRequestEditComponent },
   { path: 'purchase-request-line-item/create/:id', component: PurchaseRequestLineItemCreateComponent },
   { path: 'purchase-request-line-item/edit/:id', component: PurchaseRequestLineItemEditComponent },
-  { path: '**', component: UserListComponent }
+  { path: '**', component: AboutComponent }
 ];
 
 @NgModule({

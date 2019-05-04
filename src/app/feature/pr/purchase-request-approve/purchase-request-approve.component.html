@@ -54,7 +54,7 @@
         <button *ngIf='pr.reasonForRejection == "" || pr.reasonForRejection == null' disabled
           class='btn btn-danger' title='Reject' style='margin-right: 5px'>Reject</button>
         <!-- <button *ngIf='pr.status == "Rejected"' (click)="reSubmit()" class='btn btn-warning' title='Delete'>Remove</button> -->
-        <input [(ngModel)]='pr.reasonForRejection' type="text" size='50%' placeholder="Reason For Rejection">
+        <input [(ngModel)]='pr.reasonForRejection' type="text" size='100%' placeholder="Reason For Rejection">
       </td>
     </tr>
   </table>

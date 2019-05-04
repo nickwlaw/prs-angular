@@ -17,15 +17,12 @@ export class UserLoginComponent implements OnInit {
   login() {
     this.userSvc.login(this.user).subscribe(jresp => {
       this.jr = jresp;
-      console.log('ULC.login()', 'jr', this.jr);
       if (this.jr.errors == null) {
         this.user = this.jr.data as User;
-        console.log('errors null');
         this.sysSvc.data.user.instance = this.user;
         this.sysSvc.data.user.loggedIn = true;
-        this.router.navigateByUrl('/user/list');
+        this.router.navigateByUrl('/purchase-request/list');
       } else {
-        console.log('errors NOT null');
         this.message = this.jr.errors;
       }
     });
