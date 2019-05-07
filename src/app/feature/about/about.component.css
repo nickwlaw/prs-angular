@@ -1,7 +1,7 @@
 h1,
 h2,
 h3 {
-  padding: 55px 0px 30px 0px;
+  padding: 40px 0px 30px 0px;
 }
 
 .img-responsive {
@@ -10,12 +10,35 @@ h3 {
   max-height: 600px;
   max-width: 400px;
   padding-bottom: 25px;
+  z-index: -1;
 }
 
 .programmingLanguages {
   height: auto;
   width: auto;
-  max-height: 300px;
-  max-width: 300px;
+  max-height: 250px;
+  max-width: 250px;
   padding-bottom: 25px;
+}
+
+.secondRowImages {
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
+
+.container {
+  scroll-snap-type-y: mandatory;
+  position: relative;
+  top: 100px;
+}
+
+.whatIsPRS {
+  scroll-snap-type: mandatory;
+  scroll-snap-align: start;
+  height: 85vh;
+}
+
+.whatTechnologies {
+  scroll-snap-type: mandatory;
+  scroll-snap-align: start;
 }

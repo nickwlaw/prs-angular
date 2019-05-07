@@ -35,10 +35,14 @@ export class PurchaseRequestLinesComponent implements OnInit {
         });
       }
       if (params.pr && params.prli) {
-        this.prliSvc.delete(params.prli).subscribe(jr => {
-          this.router.navigateByUrl('/purchase-request/lines/' + params.pr);
-        });
+        this.deleteLineItem(params.prli);
       }
+    });
+  }
+
+  deleteLineItem(prli: PurchaseRequestLineItem) {
+    this.prliSvc.delete(prli.id).subscribe(jr => {
+      this.router.navigateByUrl('/purchase-request/lines/' + this.pr);
     });
   }
 
