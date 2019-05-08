@@ -7,7 +7,6 @@
   </div>
   <table class="table table-sm" *ngIf='pr'>
     <tr>
-      <th class="table-secondary font-weight-bold">Id</th>
       <th class="table-secondary font-weight-bold">User</th>
       <th class="table-secondary font-weight-bold">Description</th>
       <th class="table-secondary font-weight-bold">Justification</th>
@@ -18,7 +17,6 @@
       <th class="table-secondary font-weight-bold">Submitted Date</th>
     </tr>
     <tr>
-      <td>{{ pr.id }}</td>
       <td>{{ pr.user.userName }}</td>
       <td>{{ pr.description }}</td>
       <td>{{ pr.justification }}</td>
@@ -35,25 +33,22 @@
   <p *ngIf='!prlis'>Loading...</p>
   <table class="table table-sm" *ngIf='prlis'>
     <tr>
-      <th class="table-secondary font-weight-bold">Id</th>
       <th class="table-secondary font-weight-bold">Product</th>
       <th class="table-secondary font-weight-bold">Price</th>
       <th class="table-secondary font-weight-bold">Quantity</th>
     </tr>
     <tr *ngFor='let prli of prlis'>
-      <td>{{ prli.id }}</td>
       <td>{{ prli.product.name }}</td>
       <td>{{ prli.product.price }}</td>
       <td>{{ prli.quantity }}</td>
     </tr>
     <tr>
       <td colspan="4">
-        <button (click)="approve()" class='btn btn-primary' title='Submit' style='margin-right: 5px'>Approve</button>
+        <button (click)="approve()" class='btn btn-primary' title='Approve' style='margin-right: 5px'>Approve</button>
         <button *ngIf='pr.reasonForRejection != "" || !pr.reasonForRejection == null' (click)="reject()"
           class='btn btn-danger' title='Reject' style='margin-right: 5px'>Reject</button>
-        <button *ngIf='pr.reasonForRejection == "" || pr.reasonForRejection == null' disabled
-          class='btn btn-danger' title='Reject' style='margin-right: 5px'>Reject</button>
-        <!-- <button *ngIf='pr.status == "Rejected"' (click)="reSubmit()" class='btn btn-warning' title='Delete'>Remove</button> -->
+        <button *ngIf='pr.reasonForRejection == "" || pr.reasonForRejection == null' disabled class='btn btn-danger'
+          title='Reject' style='margin-right: 5px'>Reject</button>
         <input [(ngModel)]='pr.reasonForRejection' type="text" size='100%' placeholder="Reason For Rejection">
       </td>
     </tr>

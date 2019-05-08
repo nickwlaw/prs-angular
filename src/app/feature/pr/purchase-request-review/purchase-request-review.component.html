@@ -11,8 +11,7 @@
 <p *ngIf='!prs'>Loading ...</p>
 <table class="table table-sm" *ngIf='prs'>
   <tr>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('id')"><u>Id</u></a>
-    </th>
+    <th class='table-secondary'></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
         (click)="sortBy('user')"><u>User</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
@@ -23,19 +22,19 @@
         (click)="sortBy('total')"><u>Total</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
         (click)="sortBy('status')"><u>Status</u></a></th>
-    <th class="table-secondary">Action</th>
+    <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Action</a></th>
   </tr>
 
   <tr *ngFor='let pr of prs | sort:sortCriteria:sortOrder'>
-    <td>{{pr.id}}</td>
+    <td></td>
     <td>{{pr.user.userName}}</td>
     <td>{{pr.submittedDate}}</td>
     <td>{{pr.dateNeeded}}</td>
     <td>{{pr.total}}</td>
     <td>{{pr.status}}</td>
     <td class='actions'>
-      <a routerLink='/purchase-request/approve/{{pr.id}}'><img src='assets/review.png' width='25' height='25'
-          title='Approve'></a>
+      <a routerLink='/purchase-request/approve/{{pr.id}}' style='padding-left: 22px'><img src='assets/review.png'
+          width='25' height='25' title='Approve'></a>
     </td>
   </tr>
 </table>

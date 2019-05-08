@@ -3,15 +3,9 @@
   <div class=''>
     <div class='lefthalf'>
       <span class='component-title'>[{{title}}]</span>
-      <span><a routerLink='/purchase-request/create'><img id='createnew' width='20' height='20' src='assets/add-icon.png'
-            title='Add New'></a></span>
     </div>
   </div>
   <table class="table table-sm" *ngIf='pr'>
-    <tr>
-      <td>Id</td>
-      <td>{{ pr.id }}</td>
-    </tr>
     <tr>
       <td>User</td>
       <td>{{ pr.user.userName }}</td>
@@ -50,8 +44,8 @@
     </tr>
     <tr>
       <td colspan="2">
-        <a routerLink='/purchase-request/edit/{{pr.id}}' class='btn btn-primary' title='Edit' style='margin-right: 5px'>Edit</a>
-        <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+        <a *ngIf='loggedInUser.admin || loggedInUser.userName == pr.user.userName && pr.status == "New" || pr.status == "Rejected"' routerLink='/purchase-request/edit/{{pr.id}}' class='btn btn-primary' title='Edit' style='margin-right: 5px'>Edit</a>
+        <button *ngIf='loggedInUser.admin' (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
       </td>
     </tr>
   </table>

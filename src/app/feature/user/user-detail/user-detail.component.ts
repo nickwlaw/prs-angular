@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../service/user.service';
+import { SystemService } from '../../../service/system.service';
 import { User } from '../../../model/user.class';
 
 @Component({
@@ -11,10 +12,12 @@ import { User } from '../../../model/user.class';
 export class UserDetailComponent implements OnInit {
   title = 'User Detail';
   user: User;
+  loggedInUser: User;
 
-  constructor(private userSvc: UserService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private sysSvc: SystemService, private userSvc: UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.loggedInUser = this.sysSvc.data.user.instance;
     this.route.params.subscribe(params => {
       this.userSvc.get(params.id).subscribe(jr => {
         this.user = jr.data as User;

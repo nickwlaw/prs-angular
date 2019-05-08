@@ -37,6 +37,10 @@ export class PurchaseRequestService {
     return this.http.put(url + 'reject', pr) as Observable<JsonResponse>;
   }
 
+  reopen(pr: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.put(url + 'reopen', pr) as Observable<JsonResponse>;
+  }
+
   edit(pr: PurchaseRequest): Observable<JsonResponse> {
     return this.http.put(url, pr) as Observable<JsonResponse>;
   }

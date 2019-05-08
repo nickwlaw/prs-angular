@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../model/product.class';
+import { User } from '../../../model/user.class';
+import { SystemService } from '../../../service/system.service';
 import { ProductService } from '../../../service/product.service';
 
 @Component({
@@ -12,10 +14,12 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   sortCriteria = 'name';
   sortOrder = 'asc';
+  loggedInUser: User;
 
-  constructor(private prodSvc: ProductService) { }
+  constructor(private sysSvc: SystemService, private prodSvc: ProductService) { }
 
   ngOnInit() {
+    this.loggedInUser = this.sysSvc.data.user.instance;
     this.prodSvc.list().subscribe(jr => {
       this.products = jr.data as Product[];
     });

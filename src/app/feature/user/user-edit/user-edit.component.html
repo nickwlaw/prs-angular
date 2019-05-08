@@ -41,15 +41,13 @@
         aria-describedby="emailHelp" placeholder="Email">
       <small id="emailHelp" class="form-text text-muted col-sm-2">User's Email</small>
     </div>
-    <hr />
-    <div class="form-group row">
+    <div *ngIf='loggedInUser.admin' class="form-group row">
       <label class='col-form-label col-sm-2' for="userAdmin">Admin:</label>
       <input [(ngModel)]='user.admin' name='Admin' type="checkbox" class="form-control col-sm-6" id="userAdmin"
         aria-describedby="adminHelp" placeholder="Admin">
       <small id="adminHelp" class="form-text text-muted col-sm-2">Admin Authority</small>
     </div>
-    <hr />
-    <div class="form-group row">
+    <div *ngIf='loggedInUser.admin' class="form-group row">
       <label class='col-form-label col-sm-2' for="userReviewer">Reviewer:</label>
       <input [(ngModel)]='user.reviewer' name='Reviewer' type="checkbox" class="form-control col-sm-6" id="userReviewer"
         aria-describedby="reviewerHelp" placeholder="Reviewer">

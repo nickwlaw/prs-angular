@@ -19,7 +19,7 @@ export class PurchaseRequestLinesComponent implements OnInit {
   user: User;
 
   constructor(private prSvc: PurchaseRequestService, private prliSvc: PurchaseRequestLineItemService, private sysSvc: SystemService,
-              private route: ActivatedRoute, private router: Router) { }
+    private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.user = this.sysSvc.data.user.instance;
@@ -35,14 +35,10 @@ export class PurchaseRequestLinesComponent implements OnInit {
         });
       }
       if (params.pr && params.prli) {
-        this.deleteLineItem(params.prli);
+        this.prliSvc.delete(params.prli).subscribe(jr => {
+          this.router.navigateByUrl('/purchase-request/lines/' + params.pr);
+        });
       }
-    });
-  }
-
-  deleteLineItem(prli: PurchaseRequestLineItem) {
-    this.prliSvc.delete(prli.id).subscribe(jr => {
-      this.router.navigateByUrl('/purchase-request/lines/' + this.pr);
     });
   }
 
@@ -53,7 +49,10 @@ export class PurchaseRequestLinesComponent implements OnInit {
     });
   }
 
-  reSubmit() {
-
+  reopen() {
+    this.prSvc.reopen(this.pr).subscribe(jr => {
+      this.pr = jr.data as PurchaseRequest;
+      this.router.navigateByUrl('/purchase-request/lines/' + this.pr.id);
+    });
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../model/user.class';
 import { UserService } from '../../../service/user.service';
+import { SystemService } from '../../../service/system.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,10 +13,12 @@ export class UserEditComponent implements OnInit {
   title = 'User Edit';
   id: string;
   user: User;
+  loggedInUser: User;
 
-  constructor(private userSvc: UserService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private sysSvc: SystemService, private userSvc: UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.loggedInUser = this.sysSvc.data.user.instance;
     this.route.params.subscribe(params => this.id = params.id);
     this.userSvc.get(this.id).subscribe(jr => {
       this.user = jr.data as User;

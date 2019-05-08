@@ -1,69 +1,78 @@
 <app-menu></app-menu>
 <div class='component-content'>
-  <div class=''>
-    <div class='lefthalf'>
-      <span class='component-title'>[{{title}}]</span>
-    </div>
+
+  <div class='lefthalf'>
+    <span class='component-title'>[{{title}}]</span>
   </div>
-  <table class="table table-sm" *ngIf='pr'>
-    <tr>
-      <th class="table-secondary font-weight-bold">Id</th>
-      <th class="table-secondary font-weight-bold">User</th>
-      <th class="table-secondary font-weight-bold">Description</th>
-      <th class="table-secondary font-weight-bold">Justification</th>
-      <th class="table-secondary font-weight-bold">Date Needed</th>
-      <th class="table-secondary font-weight-bold">Delivery Mode</th>
-      <th class="table-secondary font-weight-bold">Status</th>
-      <th class="table-secondary font-weight-bold">Total</th>
-      <th class="table-secondary font-weight-bold">Submitted Date</th>
-    </tr>
-    <tr>
-      <td>{{ pr.id }}</td>
-      <td>{{ pr.user.userName }}</td>
-      <td>{{ pr.description }}</td>
-      <td>{{ pr.justification }}</td>
-      <td>{{ pr.dateNeeded }}</td>
-      <td>{{ pr.deliveryMode }}</td>
-      <td>{{ pr.status }}</td>
-      <td>{{ pr.total }}</td>
-      <td>{{ pr.submittedDate }}</td>
-    </tr>
-  </table>
-  <div class='lefthalf' *ngIf='pr'>
-    <span class='component-title'>[Line items]</span>
-    <span><a *ngIf='pr.status == "New"' routerLink='/purchase-request-line-item/create/{{ pr.id }}'>
-        <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
-    </span>
-  </div>
-  <p *ngIf='!prlis'>Loading...</p>
-  <table class="table table-sm" *ngIf='prlis'>
-    <tr>
-      <th class="table-secondary font-weight-bold">Id</th>
-      <th class="table-secondary font-weight-bold">Product</th>
-      <th class="table-secondary font-weight-bold">Price</th>
-      <th class="table-secondary font-weight-bold">Quantity</th>
-      <th *ngIf='pr.status == "New"' class="table-secondary font-weight-bold">Action</th>
-    </tr>
-    <tr *ngFor='let prli of prlis'>
-      <td>{{ prli.id }}</td>
-      <td>{{ prli.product.name }}</td>
-      <td>{{ prli.product.price }}</td>
-      <td>{{ prli.quantity }}</td>
-      <td *ngIf='pr.status == "New"' class='actions'>
-        <a routerLink='/purchase-request-line-item/edit/{{prli.id}}'><img src='assets/pencil-icon.png' width='20'
-            height='20' title='Edit'></a>
-        <a routerLink='/purchase-request/lines/remove/{{pr.id}}/{{prli.id}}'><img src='assets/delete.jpg' width='20'
-            height='20' title='Delete'></a>
-      </td>
-    </tr>
-    <tr *ngIf='!prlis || prlis.length == 0'>
-      <td colspan="5" class='alert alert-warning' style='text-align: center'>No Line Items</td>
-    </tr>
-    <tr>
-      <td colspan="4">
-        <button *ngIf='pr.status == "New" && prlis.length > 0' (click)="submit()" class='btn btn-primary' title='Submit'>Submit</button>
-        <!-- <button *ngIf='pr.status == "Rejected"' (click)="reSubmit()" class='btn btn-warning' title='Delete'>Remove</button> -->
-      </td>
-    </tr>
-  </table>
 </div>
+<table class="table table-sm" *ngIf='pr'>
+  <tr>
+    <th class='table-secondary'></th>
+    <th class="table-secondary btn-link font-weight-bold">User</th>
+    <th class="table-secondary btn-link font-weight-bold">Description</th>
+    <th class="table-secondary btn-link font-weight-bold">Justification</th>
+    <th class="table-secondary btn-link font-weight-bold">Date Needed</th>
+    <th class="table-secondary btn-link font-weight-bold">Delivery Mode</th>
+    <th class="table-secondary btn-link font-weight-bold">Status</th>
+    <th class="table-secondary btn-link font-weight-bold">Total</th>
+    <th class="table-secondary btn-link font-weight-bold">Submitted Date</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td>{{ pr.user.userName }}</td>
+    <td>{{ pr.description }}</td>
+    <td>{{ pr.justification }}</td>
+    <td>{{ pr.dateNeeded }}</td>
+    <td>{{ pr.deliveryMode }}</td>
+    <td>{{ pr.status }}</td>
+    <td>{{ pr.total }}</td>
+    <td>{{ pr.submittedDate }}</td>
+  </tr>
+</table>
+<div class='lefthalf' *ngIf='pr'>
+  <span class='component-title'> [Line items]</span>
+  <span><a
+      *ngIf='pr.status == "New" && user.userName == pr.user.userName || pr.status == "Reopened" && user.userName == pr.user.userName'
+      routerLink='/purchase-request-line-item/create/{{ pr.id }}'>
+      <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+  </span>
+</div>
+<p *ngIf='!prlis'>Loading...</p>
+<table class="table table-sm" *ngIf='prlis'>
+  <tr>
+    <th class='table-secondary'></th>
+    <th class="table-secondary btn-link font-weight-bold">Product</th>
+    <th class="table-secondary btn-link font-weight-bold">Price</th>
+    <th class="table-secondary btn-link font-weight-bold">Quantity</th>
+    <th
+      *ngIf='pr.status == "New" && user.userName == pr.user.userName || pr.status == "Reopened" && user.userName == pr.user.userName'
+      class="table-secondary font-weight-bold">Action</th>
+  </tr>
+  <tr *ngFor='let prli of prlis'>
+    <td></td>
+    <td>{{ prli.product.name }}</td>
+    <td>{{ prli.product.price }}</td>
+    <td>{{ prli.quantity }}</td>
+    <td
+      *ngIf='pr.status == "New" && user.userName == pr.user.userName || pr.status == "Reopened" && user.userName == pr.user.userName'
+      class='actions'>
+      <a routerLink='/purchase-request-line-item/edit/{{prli.id}}' class='actionIcon'><img src='assets/pencil-icon.png'
+          width='20' height='20' title='Edit'></a>
+      <a routerLink='/purchase-request/lines/remove/{{pr.id}}/{{prli.id}}' class='actionIcon'><img
+          src='assets/delete.jpg' width='20' height='20' title='Delete'></a>
+    </td>
+  </tr>
+  <tr *ngIf='!prlis || prlis.length == 0'>
+    <td colspan="5" class='alert alert-warning' style='text-align: center'>No Line Items</td>
+  </tr>
+  <tr>
+    <td colspan="5">
+      <button
+        *ngIf='pr.status == "New" && prlis.length > 0 && user.userName == pr.user.userName || pr.status == "Reopened" && prlis.length > 0 && user.userName == pr.user.userName'
+        (click)="submit()" class='btn btn-primary' title='Submit'>Submit</button>
+      <button *ngIf='pr.status == "Rejected" && prlis.length > 0' (click)="reopen()" class='btn btn-primary'
+        title='Reopen'>Reopen</button>
+    </td>
+  </tr>
+</table>
+<!-- </div> -->

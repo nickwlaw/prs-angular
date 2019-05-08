@@ -28,17 +28,12 @@ h3 {
 
 .container {
   scroll-snap-type-y: mandatory;
-  position: relative;
-  top: 100px;
 }
 
 .whatIsPRS {
-  scroll-snap-type: mandatory;
-  scroll-snap-align: start;
-  height: 85vh;
+  height: 100vh;
 }
 
 .whatTechnologies {
-  scroll-snap-type: mandatory;
-  scroll-snap-align: start;
+  height: 100vh;
 }

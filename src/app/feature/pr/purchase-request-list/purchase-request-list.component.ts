@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseRequest } from '../../../model/purchase-request.class';
 import { PurchaseRequestService } from '../../../service/purchase-request.service';
+import { SystemService } from '../../../service/system.service';
+import { User } from '../../../model/user.class';
 
 @Component({
   selector: 'app-purchase-request-list',
@@ -12,10 +14,12 @@ export class PurchaseRequestListComponent implements OnInit {
   prs: PurchaseRequest[];
   sortCriteria = 'name';
   sortOrder = 'asc';
+  loggedInUser: User;
 
-  constructor(private prSvc: PurchaseRequestService) { }
+  constructor(private sysSvc: SystemService, private prSvc: PurchaseRequestService) { }
 
   ngOnInit() {
+    this.loggedInUser = this.sysSvc.data.user.instance;
     this.prSvc.list().subscribe(jr => {
       this.prs = jr.data as PurchaseRequest[];
     });
