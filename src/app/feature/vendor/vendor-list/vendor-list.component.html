@@ -2,7 +2,7 @@
 <div class='component-content'>
   <div class='lefthalf'>
     <span class='component-title'>[{{title}}] </span>
-    <span *ngIf='loggedInUser.admin'><a routerLink='/vendor/create'>
+    <span *ngIf='loggedInUser.isAdmin'><a routerLink='/vendor/create'>
         <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
     </span>
   </div>
@@ -31,11 +31,11 @@
     <td>{{vendor.address}}, {{vendor.city}}, {{vendor.state}} {{vendor.zip}}</td>
     <td>{{vendor.phoneNumber}}</td>
     <td>{{vendor.email}}</td>
-    <td>{{vendor.preApproved?"Yes":"No"}}</td>
+    <td>{{vendor.isPreApproved ? "Yes" : "No"}}</td>
     <td class='actions'>
       <a routerLink='/vendor/detail/{{vendor.id}}' style='padding-left: 16px' class='actionIcon'><img
           src='assets/details.png' width='20' height='20' title='Detail'></a>
-      <a *ngIf='loggedInUser.admin' routerLink='/vendor/edit/{{vendor.id}}' class='actionIcon'><img
+      <a *ngIf='loggedInUser.isAdmin' routerLink='/vendor/edit/{{vendor.id}}' class='actionIcon'><img
           src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
     </td>
   </tr>

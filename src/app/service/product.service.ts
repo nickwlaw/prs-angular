@@ -9,8 +9,8 @@ const url = 'http://localhost:8080/products/';
 @Injectable({
   providedIn: 'root'
 })
-
 export class ProductService {
+  constructor(private http: HttpClient) { }
 
   list(): Observable<JsonResponse> {
     return this.http.get(url) as Observable<JsonResponse>;
@@ -31,6 +31,4 @@ export class ProductService {
   delete(id: number): Observable<JsonResponse> {
     return this.http.delete(url + id) as Observable<JsonResponse>;
   }
-
-  constructor(private http: HttpClient) { }
 }

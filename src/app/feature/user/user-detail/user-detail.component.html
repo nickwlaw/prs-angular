@@ -28,16 +28,16 @@
     </tr>
     <tr>
       <td>Admin</td>
-      <td>{{ user.admin }}</td>
+      <td>{{ user.isAdmin }}</td>
     </tr>
     <tr>
       <td>Reviewer</td>
-      <td>{{ user.reviewer }}</td>
+      <td>{{ user.isReviewer }}</td>
     </tr>
     <tr>
       <td colspan="2">
-        <a *ngIf='loggedInUser.admin || loggedInUser.userName == user.userName' routerLink='/user/edit/{{user.id}}' class='btn btn-primary' title='Edit' style='margin-right: 5px'>Edit</a>
-        <button *ngIf='loggedInUser.admin' (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+        <a *ngIf='loggedInUser.isAdmin || loggedInUser.userName == user.userName' routerLink='/user/edit/{{user.id}}' class='btn btn-primary' title='Edit' style='margin-right: 5px'>Edit</a>
+        <button *ngIf='loggedInUser.isAdmin' (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
       </td>
     </tr>
   </table>

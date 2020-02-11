@@ -21,6 +21,7 @@ export class UserDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.userSvc.get(params.id).subscribe(jr => {
         this.user = jr.data as User;
+        console.log(this.user);
       });
     });
   }

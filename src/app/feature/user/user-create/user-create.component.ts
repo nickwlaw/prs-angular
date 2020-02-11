@@ -16,7 +16,7 @@ export class UserCreateComponent implements OnInit {
     this.userSvc.create(this.user).subscribe(jr => {
       this.router.navigate(['/user/list']);
       this.user = jr.data as User;
-      this.user.active = true;
+      this.user.isActive = true;
       console.log(this.user);
     });
   }

@@ -9,7 +9,6 @@ const url = 'http://localhost:8080/users/';
 @Injectable({
   providedIn: 'root'
 })
-
 export class UserService {
 
   list(): Observable<JsonResponse> {
@@ -17,7 +16,6 @@ export class UserService {
   }
 
   create(user: User): Observable<JsonResponse> {
-    console.log('usersvc.create...');
     return this.http.post(url, user) as Observable<JsonResponse>;
   }
 
@@ -26,7 +24,6 @@ export class UserService {
   }
 
   get(id: string): Observable<JsonResponse> {
-    console.log('usersvc.get..  id=' + id);
     return this.http.get(url + id) as Observable<JsonResponse>;
   }
 

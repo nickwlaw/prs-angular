@@ -9,7 +9,6 @@ const url = 'http://localhost:8080/purchase-request-line-items/';
 @Injectable({
   providedIn: 'root'
 })
-
 export class PurchaseRequestLineItemService {
 
   list(): Observable<JsonResponse> {

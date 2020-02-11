@@ -40,10 +40,10 @@
     </tr>
     <tr>
       <td>Pre-Approved</td>
-      <td>{{ vendor.preApproved }}</td>
+      <td>{{ vendor.isPreApproved }}</td>
     </tr>
     <tr>
-      <td *ngIf='loggedInUser.admin' colspan="2">
+      <td *ngIf='loggedInUser.isAdmin' colspan="2">
         <a routerLink='/vendor/edit/{{vendor.id}}' class='btn btn-primary' title='Edit' style='margin-right: 5px'>Edit</a>
         <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
       </td>

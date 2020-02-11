@@ -9,7 +9,6 @@ const url = 'http://localhost:8080/vendors/';
 @Injectable({
   providedIn: 'root'
 })
-
 export class VendorService {
 
   list(): Observable<JsonResponse> {

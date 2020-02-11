@@ -31,6 +31,7 @@ export class UserLoginComponent implements OnInit {
   constructor(private userSvc: UserService, private sysSvc: SystemService, private router: Router) { }
 
   ngOnInit() {
+    this.user.userName = 'nlaw';
     this.user.password = 'password';
   }
 

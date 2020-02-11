@@ -28,10 +28,10 @@
     <td>{{user.lastName}}, {{user.firstName}}</td>
     <td>{{user.phoneNumber}}</td>
     <td>{{user.email}}</td>
-    <td>{{user.reviewer?"Rvw":""}} {{user.admin?"Adm":""}}</td>
+    <td>{{user.isReviewer ? "Rvw" : ""}}{{user.isAdmin && user.isReviewer ? " | " : ""}}{{user.isAdmin ? "Adm" : ""}}</td>
     <td class='actions'>
       <a routerLink='/user/detail/{{user.id}}' style='padding-left: 16px' class='actionIcon'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
-      <a *ngIf='loggedInUser.admin' routerLink='/user/edit/{{user.id}}' class='actionIcon'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+      <a *ngIf='loggedInUser.isAdmin' routerLink='/user/edit/{{user.id}}' class='actionIcon'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
     </td>
   </tr>
 </table>
